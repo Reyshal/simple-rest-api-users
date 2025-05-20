@@ -18,7 +18,7 @@ mongoose.connect(process.env.MONGO_URI).then(() => {
 });
 
 // Swagger options
-const options = { customCssUrl: '/public/css/swagger-ui.css' };
+const options = { customCssUrl: '/swagger/swagger-ui.css' };
 
 // Routes
 app.use("/api/users", require("./routes/users"));
