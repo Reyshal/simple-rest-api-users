@@ -17,12 +17,9 @@ mongoose.connect(process.env.MONGO_URI).then(() => {
     console.error("❌ MongoDB connection failed:", error);
 });
 
-// Swagger options
-const options = { customCssUrl: '/swagger/swagger-ui.css' };
-
 // Routes
 app.use("/api/users", require("./routes/users"));
-app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDoc, options));
+app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDoc));
 
 // Error handling middleware
 app.use((err, req, res, next) => {
