@@ -3,6 +3,7 @@ const cors = require("cors");
 const mongoose = require("mongoose");
 const swaggerUi = require("swagger-ui-express");
 const swaggerDoc = require("./swagger/swagger.js");
+const path = require("path");
 
 require("dotenv").config();
 
@@ -18,7 +19,8 @@ mongoose.connect(process.env.MONGO_URI).then(() => {
 });
 
 // Swagger options
-const options = { customCssUrl: '/swagger/swagger-ui.css' };
+app.use('/public', express.static(path.join(__dirname, 'public')));
+const options = { customCssUrl: '/public/swagger-ui.css' };
 
 // Routes
 app.use("/api/users", require("./routes/users"));
