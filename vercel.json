@@ -9,6 +9,9 @@
   "installCommand": "npm install",
   "routes": [
     {
+      "src": "/api-docs/(.*)"
+    },
+    {
       "src": "/(.*)",
       "dest": "server.js"
     }
